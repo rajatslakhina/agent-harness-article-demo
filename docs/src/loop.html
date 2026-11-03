@@ -1,0 +1,29 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+body{margin:0;width:1400px;height:690px;font-family:Inter,system-ui,sans-serif;background:#fff;color:#0f172a}
+h2{margin:0;padding:44px 60px 6px;font-size:34px;font-weight:800}
+.sub{padding:0 60px 30px;color:#475569;font-size:20px}
+.r{padding:14px 60px}
+.t{font-size:21px;font-weight:700;margin-bottom:10px}
+.t span{font-weight:500;color:#475569}
+.bar{display:flex;height:58px;border-radius:12px;overflow:hidden;font-weight:700;font-size:19px}
+.g{background:#60a5fa;display:flex;align-items:center;justify-content:center}
+.v{background:#fb923c;display:flex;align-items:center;padding-left:18px}
+.cards{display:flex;gap:24px;padding:34px 60px 0}
+.c{flex:1;border:2px solid #e2e8f0;border-radius:16px;padding:20px 24px}
+.c .k{font-size:44px;font-weight:800}
+.c .l{font-size:18px;color:#475569;margin-top:4px;line-height:1.35}
+.note{padding:22px 60px 0;font-size:16px;color:#64748b}
+</style></head><body>
+<h2>Where one agent iteration's time goes</h2>
+<div class="sub">3:00 generation pass, then verification. Bars to scale (full iteration 14:55). A 10-minute manual VoiceOver pass is left out: the agent can’t run it, so it stops the loop instead.</div>
+<div class="r"><div class="t">Full suite <span>· 11:55 of checks</span></div>
+<div class="bar"><div class="g" style="width:20.11%">3:00</div><div class="v" style="flex:1">verification 80%</div></div></div>
+<div class="r"><div class="t">Change-aware, median plan <span>· 6:00 of checks</span></div>
+<div class="bar" style="width:60.34%"><div class="g" style="width:33.3%">3:00</div><div class="v" style="flex:1">67%</div></div></div>
+<div class="cards">
+ <div class="c"><div class="k">1.25×</div><div class="l">most a perfect prompt can buy against the full suite (generation → 0)</div></div>
+ <div class="c"><div class="k">1.67×</div><div class="l">from making the full suite 2× faster, vs 1.11× from a 2× faster model</div></div>
+ <div class="c"><div class="k">11 → 16</div><div class="l">of 20 changes the agent can verify alone, after making two flaky Checkout checks deterministic</div></div>
+</div>
+<div class="note">Synthetic sample: SampleShopApp in HarnessKit, 11 modules, 18 checks, 20 changes. Timings and flake rates are invented, not measured.</div>
+</body></html>

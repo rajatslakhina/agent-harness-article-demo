@@ -1,0 +1,35 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+body{margin:0;width:1400px;height:800px;font-family:Inter,system-ui,sans-serif;background:#f8fafc;color:#0f172a}
+h2{margin:0;padding:44px 60px 6px;font-size:34px;font-weight:800}
+.sub{padding:0 60px;color:#475569;font-size:20px}
+.row{display:flex;gap:26px;padding:40px 60px 0;align-items:stretch}
+.box{flex:1;background:#fff;border:2px solid #cbd5e1;border-radius:18px;padding:22px 22px 18px;position:relative}
+.box h3{margin:0 0 10px;font-size:22px}
+.box p{margin:6px 0;font-size:17px;color:#334155;line-height:1.4}
+.n{display:inline-block;width:34px;height:34px;border-radius:17px;background:#312e81;color:#fff;text-align:center;line-height:34px;font-weight:800;margin-right:8px}
+code{font-family:"DejaVu Sans Mono",Menlo,monospace;font-size:15px;background:#eef2ff;padding:1px 5px;border-radius:5px}
+.arrow{align-self:center;font-size:40px;color:#64748b;flex:0 0 auto}
+.outs{display:flex;gap:26px;padding:34px 60px 0}
+.o{flex:1;border-radius:16px;padding:18px 22px;font-size:18px;line-height:1.4}
+.red{background:#fee2e2;border:2px solid #f87171}.amb{background:#ffedd5;border:2px solid #fb923c}.pur{background:#f3e8ff;border:2px solid #c084fc}.grn{background:#dcfce7;border:2px solid #4ade80}
+.o b{display:block;font-size:20px;margin-bottom:4px}
+</style></head><body>
+<h2>From a changed path to a change the agent may call verified</h2>
+<div class="sub">HarnessKit's pipeline. None of the blockers at the bottom is something a better prompt can fix.</div>
+<div class="row">
+ <div class="box"><h3><span class="n">1</span>Ownership graph</h3><p>Every path maps to a module, longest prefix wins.</p><p><code>Modules/Checkout/…</code> → Checkout</p><p>Affected = the module + all its transitive dependents.</p></div>
+ <div class="arrow">→</div>
+ <div class="box"><h3><span class="n">2</span>Check selection</h3><p>Global checks + checks scoped to affected modules.</p><p>Local checks run in sequence. At the same time, remote Mac checks are spread longest-first over 2 machines.</p></div>
+ <div class="arrow">→</div>
+ <div class="box"><h3><span class="n">3</span>Evidence rules</h3><p>Flake rate &gt; 2% → <b>not evidence</b>.</p><p>Not agent-callable → <b>needs a person</b>.</p><p>Either one: the agent can't close the loop alone.</p></div>
+</div>
+<div class="outs">
+ <div class="o grn" style="flex:0 0 300px"><b>Agent can verify</b>11 of 20 changes. Every required check is deterministic and agent-callable.</div>
+ <div class="o amb" style="flex:1"><b>Blocked: 9 of 20 (the causes nest)</b>
+  All 9 pull in a flaky Checkout check (a Networking change inherits them, because Checkout depends on Networking).
+  <div class="o pur" style="margin-top:12px"><b>4 of the 9 also need a manual VoiceOver pass</b>1 design-system change, plus 3 that ran the full suite.
+   <div class="o red" style="margin-top:12px"><b>3 of those 4 touched a file no module owns</b><code>Localizable.xcstrings</code>, <code>Scripts/ci-cache.sh</code>, <code>Project.swift</code>: each forced the full suite.</div>
+  </div>
+ </div>
+</div>
+</body></html>
