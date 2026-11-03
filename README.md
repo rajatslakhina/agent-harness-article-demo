@@ -2,7 +2,7 @@
 
 **Is your iOS team's agent loop waiting on the model, or on the harness?** A Swift package that maps each change to the checks it needs through an ownership graph, flags the checks an agent can't trust or can't run, and measures where an agent's loop time actually goes. Includes an iOS demo app.
 
-Article: (added after publish)
+Article: [I Modelled an iOS Team’s AI Coding Agent Loop. A Perfect Prompt Buys 1.25×. The Harness Owns the Rest.](https://medium.com/@er.rajatlakhina/i-modelled-an-ios-teams-ai-coding-agent-loop-a60548d0c25b)
 
 ![Four iOS Simulator screenshots of the demo app: the change list, the plan for a change with an unowned path, the agent-loop model and the harness audit.](docs/simulator.png)
 
@@ -60,8 +60,8 @@ swift build && swift test
 
 ## Verification status
 
-- `swift build -Xswiftc -warnings-as-errors` and `swift test` (27 tests, 0 failures) pass on Linux (Swift 6.1.2). The `library` CI job is configured to run them again on macOS.
-- The `demo-on-simulator` CI job is configured to build `Demo.xcodeproj` for an iPhone Simulator, install and launch the app four times with a process-alive check, and commit the screenshots in `Demo/Screenshots/`. It is not a hand-run in local Xcode. (Status is updated here once CI has run.)
+- `swift build -Xswiftc -warnings-as-errors` and `swift test` (27 tests, 0 failures) pass on Linux (Swift 6.1.2) and in the `library` CI job on macOS with Xcode 16.4 ([run 41616306678](https://github.com/rajatslakhina/agent-harness-article-demo/actions/runs/41616306678)).
+- In the same run, the `demo-on-simulator` job built `Demo.xcodeproj` for an iPhone Pro Simulator (iOS 18.5 SDK), installed it, launched it four times with a process-alive check, and committed the screenshots in `Demo/Screenshots/` (composed into `docs/simulator.png`). It is not a hand-run in local Xcode.
 
 ## License
 
